@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Code-pull') {
             steps {
-                git branch: 'main', credentialsId: '2b26b3e0-bceb-42f9-9fa2-cf95c1c91672', url: 'https://github.com/rahulgupta-25/jenkins_deployement.git'
+                git branch: 'main', credentialsId: 'github-creds', url: 'https://github.com/rahulgupta-25/jenkins_deployement.git'
             }
         }
         stage('Build') {
