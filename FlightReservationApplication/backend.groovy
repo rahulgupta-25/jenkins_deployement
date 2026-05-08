@@ -14,24 +14,14 @@ pipeline {
                 '''
             }
         }
-        stage('QA-Test') {
-            steps {
-                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-token') {
-                    sh '''
-                        cd FlightReservationApplication
-                        mvn sonar:sonar -Dsonar.projectKey=flight-reservation-backend 
-                    '''
-                
-                }
-            }
-        }
+       
         stage('Docker'){
             steps {
                 sh '''
                     cd FlightReservationApplication
-                    docker build -t mayurwagh/flight-reservation-pls-19-20:latest . 
-                    docker push mayurwagh/flight-reservation-pls-19-20:latest
-                    docker rmi mayurwagh/flight-reservation-pls-19-20:latest
+                    docker build -t rahul25cloud/flight-reservation-pls-19-20:latest . 
+                    docker push rahul25cloud/flight-reservation-pls-19-20:latest
+                    docker rmi rahul25cloud/flight-reservation-pls-19-20:latest
                 '''
             }
         }
